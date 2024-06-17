@@ -27,8 +27,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const skillsHeaders = document.querySelectorAll('.skills__header');
     skillsHeaders.forEach(header => {
         header.addEventListener('click', function() {
-            const skillContent = this.nextElementSibling;
+            const skillContent = this.parentNode;
             skillContent.classList.toggle('skills__open');
+            skillContent.classList.toggle('skills__close');
         });
     });
 
@@ -87,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Initialize Swiper for testimonial section
-    const testimonialContainer = document.getElementsByClassName('.testimonial__container');
+    const testimonialContainer = document.querySelector('.testimonial__container');
     if (testimonialContainer) {
         try {
             const swiperTestimonial = new Swiper('.testimonial__container', {
